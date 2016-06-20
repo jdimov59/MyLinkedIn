@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using MyLinkedIn.Web.Models;
+using MyLinkedIn.DataModels;
+using MyLinkedIn.Data;
 
 namespace MyLinkedIn.Web
 {

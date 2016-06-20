@@ -175,7 +175,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -255,6 +254,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-3.0.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\MyLinkedIn.DataModels\MyLinkedIn.DataModels.csproj">
+      <Project>{516ba1f4-f946-41d1-9d6f-1595a08f5c49}</Project>
+      <Name>MyLinkedIn.DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\MyLinkedIn.Data\MyLinkedIn.Data.csproj">
+      <Project>{dc301b0d-f5af-4d8c-8ea8-2f1a14fd1f85}</Project>
+      <Name>MyLinkedIn.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
