@@ -59,10 +59,17 @@
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tag.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLinkedIn.Data.Common\MyLinkedIn.Data.Common.csproj">
+      <Project>{bbfb0382-3b5e-40a7-bf66-b6b90397f57c}</Project>
+      <Name>MyLinkedIn.Data.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

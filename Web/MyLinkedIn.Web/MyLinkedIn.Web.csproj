@@ -256,6 +256,10 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\MyLinkedIn.Data.Common\MyLinkedIn.Data.Common.csproj">
+      <Project>{bbfb0382-3b5e-40a7-bf66-b6b90397f57c}</Project>
+      <Name>MyLinkedIn.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\MyLinkedIn.DataModels\MyLinkedIn.DataModels.csproj">
       <Project>{516ba1f4-f946-41d1-9d6f-1595a08f5c49}</Project>
       <Name>MyLinkedIn.DataModels</Name>
