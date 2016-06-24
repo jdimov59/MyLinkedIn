@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace MyLinkedIn.Data.Common.Repository
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
+        private DbContext context;
+        private IDbSet<T> set;
+
         public GenericRepository(DbContext context)
         {
             if (context == null)
@@ -14,87 +16,59 @@ namespace MyLinkedIn.Data.Common.Repository
                 throw new ArgumentException("An instance of DbContext is required to use this repository.", "context");
             }
 
-            this.Context = context;
-            this.DbSet = this.Context.Set<T>();
+            this.context = context;
+            set = this.context.Set<T>();
         }
 
-        protected IDbSet<T> DbSet { get; set; }
-
-        protected DbContext Context { get; set; }
-
-        public virtual IQueryable<T> All()
+        protected IDbSet<T> Set
         {
-            return this.DbSet.AsQueryable();
+            get { return set; }
+        }
+        
+        public IQueryable<T> All()
+        {
+            return set;
         }
 
-        public virtual T GetById(int id)
+        public T Find(object id)
         {
-            return this.DbSet.Find(id);
+            return set.Find(id);
         }
 
         public virtual void Add(T entity)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
-            if (entry.State != EntityState.Detached)
-            {
-                entry.State = EntityState.Added;
-            }
-            else
-            {
-                this.DbSet.Add(entity);
-            }
+            ChangeState(entity, EntityState.Added);
         }
 
         public virtual void Update(T entity)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
-            if (entry.State == EntityState.Detached)
-            {
-                this.DbSet.Attach(entity);
-            }
-
-            entry.State = EntityState.Modified;
+            ChangeState(entity, EntityState.Modified);
         }
 
-        public virtual void Delete(T entity)
+        public void Delete(T entity)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
-            if (entry.State != EntityState.Deleted)
-            {
-                entry.State = EntityState.Deleted;
-            }
-            else
-            {
-                this.DbSet.Attach(entity);
-                this.DbSet.Remove(entity);
-            }
+            ChangeState(entity, EntityState.Deleted);
         }
 
-        public virtual void Delete(int id)
+        public T Delete(object id)
         {
-            var entity = this.GetById(id);
+            var entity = Find(id);
 
             if (entity != null)
             {
-                this.Delete(entity);
+                Delete(entity);
             }
+            return entity;
         }
 
-        public virtual void Detach(T entity)
+        private void ChangeState(T entity, EntityState state)
         {
-            DbEntityEntry entry = this.Context.Entry(entity);
-
-            entry.State = EntityState.Detached;
-        }
-
-        public int SaveChanges()
-        {
-            return this.Context.SaveChanges();
-        }
-
-        public void Dispose()
-        {
-            this.Context.Dispose();
+            var entry = context.Entry(entity);
+            if (entry.State == EntityState.Deleted)
+            {
+                set.Attach(entity);
+            }
+            entry.State = state;
         }
     }
 }

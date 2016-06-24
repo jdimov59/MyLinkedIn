@@ -58,7 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMyLinkedInDataUoW.cs" />
+    <Compile Include="IMyLinkedInDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MyLinkedInDataUoW.cs" />
     <Compile Include="MyLinkedInDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

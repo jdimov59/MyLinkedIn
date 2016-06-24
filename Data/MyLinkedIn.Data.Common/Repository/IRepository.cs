@@ -1,13 +1,12 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace MyLinkedIn.Data.Common.Repository
 {
-    public interface IRepository<T> : IDisposable where T : class
+    public interface IRepository<T>
     {
         IQueryable<T> All();
 
-        T GetById(int id);
+        T Find(object id);
 
         void Add(T entity);
 
@@ -15,11 +14,7 @@ namespace MyLinkedIn.Data.Common.Repository
 
         void Delete(T entity);
 
-        void Delete(int id);
-
-        void Detach(T entity);
-
-        int SaveChanges();
+        T Delete(object id);
     }
 
 }
