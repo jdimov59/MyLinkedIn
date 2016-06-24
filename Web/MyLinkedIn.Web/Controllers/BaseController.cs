@@ -40,11 +40,5 @@ namespace MyLinkedIn.Web.Controllers
 
             return base.BeginExecute(requestContext, callback, state);
         }
-
-        // GET: Base
-        public ActionResult Index()
-        {
-            return View();
-        }
     }
 }

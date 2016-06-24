@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MyLinkedIn.Data
 {
-    public class MyLinkedInDataUoW
+    public class MyLinkedInDataUoW : IMyLinkedInDataUoW
     {
         private IMyLinkedInDbContext context;
         private IDictionary<Type, object> repositories;

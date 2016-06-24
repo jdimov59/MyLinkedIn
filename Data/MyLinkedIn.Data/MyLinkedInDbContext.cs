@@ -8,7 +8,7 @@ using System;
 
 namespace MyLinkedIn.Data
 {
-    public class MyLinkedInDbContext : IdentityDbContext<User>
+    public class MyLinkedInDbContext : IdentityDbContext<User>, IMyLinkedInDbContext
     {
         public MyLinkedInDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
