@@ -12,6 +12,10 @@ namespace MyLinkedIn.Web.Controllers
 
         public ActionResult Index()
         {
+            if (UserProfile != null)
+            {
+                ViewBag.Username = UserProfile.UserName;
+            }
             return View();
         }
 
