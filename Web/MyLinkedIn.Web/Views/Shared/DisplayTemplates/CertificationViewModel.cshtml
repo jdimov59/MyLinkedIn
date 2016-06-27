@@ -1,0 +1,28 @@
+﻿@model MyLinkedIn.Web.ViewModels.CertificationViewModel
+@{
+    ViewBag.Title = "CertificationViewModel";
+}
+<tr>
+    <td>
+        @if (string.IsNullOrEmpty(Model.Url))
+        {
+            <strong>@Model.Name</strong>
+        }
+        else
+        {
+            <strong><a href="@Model.Url">@Model.Name</a></strong>
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.LicenseNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Url)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.TakenDate, "{0:dd/MM/yyyy}")
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.ExpirationDate, "{0:dd/MM/yyyy}")
+    </td>
+</tr>

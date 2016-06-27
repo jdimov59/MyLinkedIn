@@ -14,9 +14,9 @@ namespace MyLinkedIn.DataModels
         public string LicenseNumber { get; set; }
 
         public string Url { get; set; }
-
+        
         public DateTime TakenDate { get; set; }
-
+        
         public DateTime ExpirationDate { get; set; }
 
         [Required]

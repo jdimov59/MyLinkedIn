@@ -1,5 +1,6 @@
 ﻿using MyLinkedIn.Data;
 using System.Web.Mvc;
+using System.Web.Mvc.Expressions;
 
 namespace MyLinkedIn.Web.Controllers
 {
@@ -21,8 +22,6 @@ namespace MyLinkedIn.Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 

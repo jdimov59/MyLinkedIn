@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLinkedIn.DataModels", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLinkedIn.Data.Common", "..\Data\MyLinkedIn.Data.Common\MyLinkedIn.Data.Common.csproj", "{BBFB0382-3B5E-40A7-BF66-B6B90397F57C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalLibraries", "ExternalLibraries", "{CFE767C1-0744-4229-B916-85A0C3362905}"
+	ProjectSection(SolutionItems) = preProject
+		ExternalLibraries\System.Web.Mvc.Expressions.dll = ExternalLibraries\System.Web.Mvc.Expressions.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

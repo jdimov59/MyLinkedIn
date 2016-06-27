@@ -1,0 +1,170 @@
+﻿@model MyLinkedIn.Web.ViewModels.UserViewModel
+@{
+    ViewBag.Title = "User Info";
+}
+
+<br />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <img src="@Model.AvatarUrl" alt="@Model.UserName avatar" width="150" />
+        </dt>
+
+        <dd>
+            <h2>@Html.DisplayFor(model => model.UserName)</h2>
+        </dd>
+    </dl>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvatarUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvatarUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactInfo.Facebook)
+        </dt>
+
+        <dd>
+           <a href="https://facebook.com/@Model.ContactInfo.Facebook"> @Model.ContactInfo.Facebook </a> 
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactInfo.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactInfo.Phone)
+        </dd>
+
+    </dl>
+</div>
+<br />
+
+<h3>Certifications</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            LicenseNumber
+        </th>
+        <th>
+            Url
+        </th>
+        <th>
+            TakenDate
+        </th>
+        <th>
+            ExpirationDate
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Certifications)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicenseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TakenDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpirationDate)
+            </td>
+        </tr>
+    }
+
+</table>
+<br /><hr /><br />
+
+<h3>Certifications</h3>
+
+<table class="table">
+    <tr>
+        <th class="col-md-4">
+            Name
+        </th>
+        <th class="col-md-2">
+            LicenseNumber
+        </th>
+        <th class="col-md-2">
+            Url
+        </th>
+        <th class="col-md-2">
+            TakenDate
+        </th>
+        <th class="col-md-2">
+            ExpirationDate
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+            @Html.DisplayFor(x => x.Certifications)
+    </tr>
+</table>
+<br />
+
+<h3>Skills</h3>
+
+<table class="table">
+    <tr>
+        <th class="col-md-4">
+            Name
+        </th>
+        <th class="col-md-2">
+            EndorcementsCount
+        </th>
+        <th class="col-md-2">
+            Endorcers
+        </th>
+        <th class="col-md-2">
+            Endorsement
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        @Html.DisplayFor(x => x.Skills)
+    </tr>
+</table>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
